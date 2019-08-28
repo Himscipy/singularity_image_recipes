@@ -69,8 +69,11 @@ From: centos
    echo install keras
    conda install -y keras
    
-   echo install pytorch
-   conda install -y pytorch-cpu torchvision-cpu -c pytorch
+   echo install TFP
+   pip install --upgrade tensorflow-probability
+   
+   #echo install pytorch
+   #conda install -y pytorch-cpu torchvision-cpu -c pytorch
 
    echo install other data science modules
    conda install -y pandas matplotlib scikit-learn scikit-image h5py
