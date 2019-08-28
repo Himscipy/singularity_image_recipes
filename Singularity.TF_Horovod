@@ -76,7 +76,7 @@ From: centos
    conda install -y pandas matplotlib scikit-learn scikit-image h5py
 
    echo install horovod
-   pip install horovod
+   HOROVOD_WITH_TENSORFLOW=1 HOROVOD_WITH_PYTORCH=1 pip install horovod
 
 %environment
    export PATH=/miniconda3/4.7.10/bin:$PATH
