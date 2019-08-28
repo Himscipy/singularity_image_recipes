@@ -2,6 +2,7 @@ Bootstrap: docker
 From: centos
 
 %setup
+   
    # setup is run after the base 'centos' image is
    # downloaded and upacked but before entering the 
    # container environment
