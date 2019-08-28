@@ -33,7 +33,7 @@ From: centos
    
    # change this if you want different versions
    CONDAVER=3
-   VERSION=4.5.12
+   VERSION=4.7.10
    BASE_DIR=/miniconda$CONDAVER
    PREFIX_PATH=$BASE_DIR/$VERSION
    DOWNLOAD_PATH=$BASE_DIR/DOWNLOADS
@@ -79,5 +79,5 @@ From: centos
    pip install horovod
 
 %environment
-   export PATH=/miniconda3/4.5.12/bin:$PATH
+   export PATH=/miniconda3/4.7.10/bin:$PATH
    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
