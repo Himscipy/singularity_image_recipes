@@ -14,18 +14,30 @@ From: centos
    echo gcc version
    gcc --version
    
-   MPICH_VERSION=3.3
-   echo installing mpich $MPICH_VERSION
-   mkdir /mpich
-   cd /mpich
-   wget http://www.mpich.org/static/downloads/$MPICH_VERSION/mpich-$MPICH_VERSION.tar.gz
-   tar xf mpich-$MPICH_VERSION.tar.gz --strip-components=1
-   ./configure --prefix=/mpich/install --disable-wrapper-rpath
-   make -j 4 install
+   mkdir /tmp/openmpi && \
+   cd /tmp/openmpi && \
+   wget https://www.open-mpi.org/software/ompi/v4.0/downloads/openmpi-4.0.0.tar.gz && \
+   tar zxf openmpi-4.0.0.tar.gz && \
+   cd openmpi-4.0.0 && \
+   ./configure --enable-orterun-prefix-by-default && \
+   make -j 4 all && \
+   make install && \
+   ldconfig && \
+   rm -rf /tmp/openmpi
+
+   
+   #MPICH_VERSION=3.3
+   #echo installing mpich $MPICH_VERSION
+   #mkdir /mpich
+   #cd /mpich
+   #wget http://www.mpich.org/static/downloads/$MPICH_VERSION/mpich-$MPICH_VERSION.tar.gz
+   #tar xf mpich-$MPICH_VERSION.tar.gz --strip-components=1
+   #./configure --prefix=/mpich/install --disable-wrapper-rpath
+   #make -j 4 install
    
    # setup MPICH 
-   export PATH=$PATH:/mpich/install/bin
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
+   #export PATH=$PATH:/mpich/install/bin
+   #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
    
    #####
    #  miniconda install
@@ -83,4 +95,4 @@ From: centos
 
 %environment
    export PATH=/miniconda3/4.7.10/bin:$PATH
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
+   #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mpich/install/lib
